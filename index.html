@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Decoder-side Cross Resolution Synthesis for Video Compression Enhancement</title>
+    <script type="text/javascript" src="src/latexit.js"></script>
+    <script type="text/javascript">
+    LatexIT.add('p',true);
+    </script>
+
+    <!-- CSS includes -->
+    <link href="src/bootstrap.css" rel="stylesheet">
+    <link href="src/css.css" rel="stylesheet" type="text/css">
+    <link href="src/mystyle.css" rel="stylesheet">
+
+    </head>
+<body>
+
+    <div id="header" class="container-fluid">
+        <div class="row">
+            <h1>High-Efficiency Lossy Image Coding Through <br /> Adaptive Neighborhood Information Aggregation</h1>
+            <div class="authors">
+                <a href="https://lumingzzz.github.io" target="_blank">Ming Lu</a> and 
+                <a href="https://vision.nju.edu.cn/fc/d3/c29470a457939/page.htm", target="_blank">Zhan Ma</a>
+
+                <div class="affiliations">
+                    Nanjing University
+                </div>
+            </div>
+            <p style="text-align:center;">
+                <a href="https://www.nju.edu.cn/" target="_blank"><img src="src/NJU_logo.jpg" height="100"></a>   
+                <a href="http://vision.nju.edu.cn/" target="_blank"><img src="src/vision_logo.png"  height="100"></a>
+            </p>
+        </div>
+    </div>
+
+    <!-- <div class="container" id="method">
+        <p style="text-align:center;">
+            <img src="src/complex.png" height="250">
+        </p>
+        <br>
+        <p>
+            <strong>CRS-based Video Compression Enhancement (VCE).</strong> &#8595 (in red) is for bicubic down-sampling; <strong>E</strong>, <strong>D</strong>, 
+            and <strong>B</strong> represent video encoder, decoder, and decoded picture buffer (DPB) respectively. The <strong>CRS</strong> Model is comprised of 
+            three modular components: a motion alignment and aggregation network (<strong>MAN</strong>), a texture compensation network (<strong>TCN</strong>), 
+            and a similarity-driven <strong>fusion</strong>.
+        </p>
+    </div> -->
+
+    <div class="container" id="abstractdiv">
+        <h2>Abstract</h2>
+        <p>
+            Questing for lossy image coding (LIC) with superior efficiency on both compression performance and computation throughput is challenging. 
+            The vital factor behind is how to intelligently explore Adaptive Neighborhood Information Aggregation (ANIA) in transform and entropy 
+            coding modules. To this aim, Integrated Convolution and Self-Attention (ICSA) unit is first proposed to form content-adaptive transform 
+            to dynamically characterize and embed neighborhood information conditioned on the input. Then a Multistage Context Model (MCM) is developed 
+            to stagewisely execute context prediction using necessary neighborhood elements for  accurate and parallel entropy probability estimation. 
+            Both ICSA and MCM are stacked under a Variational Auto-Encoder (VAE) architecture to derive rate-distortion optimized compact representation 
+            of input image via end-to-end supervised learning. Our method reports the superior compression performance surpassing the VVC Intra with 
+            $\approx$15% BD-rate improvement averaged across Kodak, CLIC and Tecnick datasets; and also demonstrates $\approx$ 10 $\times$ 
+            speedup of image decoding when compared with other notable learned LIC approaches.
+        </p>
+    </div>
+    
+    <!-- <div class="container" id="exp_results">
+        <h2>Additional Experimental Results</h2>
+        <div id="comparison_source">
+            <div class="row" style="text-align: center;">
+                <h3>BD-rate and BD-PSNR of Proposed CRS against HEVC anchor (1-second GOP used in LDP common test).</h3>
+                <img src="src/bdbr_hevc.png">
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container" id="paperdiv">
+        <h2>Preprint Paper</h2>
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
+                <a href="https://github.com/lumingzzz/TinyLIC" target="_blank"><p style="text-align: center;">
+                <img src="src/github_icon.png">
+                <br/>
+                Code (Github)
+            </p></a></div>
+            <div class="col-sm-3">
+                <a href="https://ieeexplore.ieee.org/abstract/document/9681152/" target="_blank"><p style="text-align: center;">
+                <img src="src/pdf_icon.png" height="120">
+                <br/>
+                Paper (Arxiv)
+            </p></a></div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+        <a href="" target="_blank">
+            <div class="thumbs">
+            </div>
+        </a>
+        <!-- <div>
+            <pre class="citation">
+            @article{lu2022decoder,
+                      title={Decoder-side Cross Resolution Synthesis for Video Compression Enhancement},
+                      author={Lu, Ming and Chen, Tong and Dai, Zhenyu and Wang, Dong and Ding, Dandan and Ma, Zhan},
+                      journal={IEEE Transactions on Multimedia},
+                      year={2022},
+                      publisher={IEEE}
+                    }
+            </pre>
+        </div> -->
+    </div>
+
+
+    <div id=footer><br></div>
+    <!-- Javascript includes -->
+    <script src="src/jquery-3.5.1.js"></script>
+    <script src="src/bootstrap.js"></script>
+  
+
+</body></html>
