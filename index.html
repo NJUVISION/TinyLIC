@@ -36,19 +36,6 @@
         </div>
     </div>
 
-    <!-- <div class="container" id="method">
-        <p style="text-align:center;">
-            <img src="src/network.png" height="350">
-        </p>
-        <br>
-        <p>
-            <strong>CRS-based Video Compression Enhancement (VCE).</strong> &#8595 (in red) is for bicubic down-sampling; <strong>E</strong>, <strong>D</strong>, 
-            and <strong>B</strong> represent video encoder, decoder, and decoded picture buffer (DPB) respectively. The <strong>CRS</strong> Model is comprised of 
-            three modular components: a motion alignment and aggregation network (<strong>MAN</strong>), a texture compensation network (<strong>TCN</strong>), 
-            and a similarity-driven <strong>fusion</strong>.
-        </p>
-    </div> -->
-
     <div class="container" id="abstractdiv">
         <h2>Abstract</h2>
         <p>
@@ -61,6 +48,16 @@
             end-to-end training. Our method reports the superior compression performance surpassing the VVC Intra with $\approx$15% BD-rate improvement 
             averaged across Kodak, CLIC and Tecnick datasets; and also demonstrates $\approx$10x speedup of image decoding when compared with other 
             notable learned LIC approaches. All materials are made publicly accessible at https://njuvision.github.io/TinyLIC for reproducible research.
+        </p>
+    </div>
+
+    <div class="container" id="method">
+        <p style="text-align:center;">
+            <img src="src/pipeline.png" height="350">
+        </p>
+        <br>
+        <p>
+            Pipeline of our proposed <strong>TinyLIC</strong> consist of <strong>Content Adaptive Tranform Coding</strong> and <strong>Multistage Entropy Coding</strong>.
         </p>
     </div>
 
