@@ -30,7 +30,7 @@
                 </div>
             </div>
             <p style="text-align:center;">
-                <a href="https://www.nju.edu.cn/" target="_blank"><img src="src/NJU_logo.jpg" height="100"></a>   
+                <a href="https://www.nju.edu.cn/" target="_blank"><img src="src/NJU_logo.jpg" height="100"></a>
                 <a href="http://vision.nju.edu.cn/" target="_blank"><img src="src/vision_logo.png"  height="100"></a>
             </p>
         </div>
@@ -72,29 +72,52 @@
         </div>
     </div>
 
-    <!-- <div class="container" id="exp_results">
+    <div class="container" id="exp_results">
         <h2>Additional Experimental Results</h2>
         <div id="comparison_table">
-        
-        <table class="table" border="1">
-            <tr>
-              <th>Methods</th> <th>PSNR (dB)</th> <th>MS-SSIM</th>
-            </tr>
-            <tr>
-                <td>Baseline Model (Balle 2018 MS-SSIM opt.) Random Noise</td>
-                <td>27.0911</td> <td>0.9670</td>
-            </tr>            
-            <tr>
-              <td>Baseline Model (Balle 2018 MS-SSIM opt.) Adversarial</td>
-              <td>11.6085</td> <td>0.6752</td>
-            </tr>
-            <tr>
-                <td>Finetuned Model</td>
-                <td>23.7074</td> <td>0.9064</td>
-            </tr>            
-        </table>
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-8" style="text-align:center;">
+                <table class="table" border="1">
+                    <tr>
+                    <th rowspan="2" style="text-align:center;">Class</th> 
+                    <th colspan="2" style="text-align:center;">VVC Intra</th> 
+                    <th colspan="2" style="text-align:center;"><i>TinyLIC</i></th>
+                    </tr>
+                    <tr>
+                        <td>High Bitrate</td> <td>Low Bitrate</td>
+                        <td>High Bitrate</td> <td>Low Bitrate</td>
+                    </tr>            
+                    <tr>
+                        <td>A</td> <td>-15.1%</td> <td>-23.6%</td>
+                        <td>-22.5%</td> <td>-26.6%</td>
+                    </tr>
+                    <tr>
+                        <td>B</td> <td>-15.3%</td> <td>-23.7%</td>
+                        <td>-19.3%</td> <td>-23.6%</td>
+                    </tr>
+                    <tr>
+                        <td>C</td> <td>-22.4%</td> <td>-28.8%</td>
+                        <td>-28.7%</td> <td>-31.3%</td>
+                    </tr>    
+                    <tr>
+                        <td>D</td> <td>-19.0%</td> <td>-23.5%</td>
+                        <td>-20.5%</td> <td>-26.4%</td>
+                    </tr>   
+                    <tr>
+                        <td>Ave.</td> <td>-17.9%</td> <td>-24.9%</td>
+                        <td>-22.8%</td> <td>-27.0%</td>
+                    </tr>               
+                </table>
+                <p>
+                    <strong>BD-rate Performance on NIC Dataset.</strong>
+                </p>
+            </div>
         </div>
-    </div> -->
+        <!-- <p>
+            <strong>More details can be found in our paper and supplemental materials.</strong>
+        </p> -->
+    </div>
 
     <div class="container" id="paperdiv">
         <h2>Preprint Paper</h2>
