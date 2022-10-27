@@ -24,11 +24,12 @@
         <div class="row">
             <h1>High-Efficiency Lossy Image Coding Through <br /> Adaptive Neighborhood Information Aggregation</h1>
             <div class="authors">
-                <a href="https://lumingzzz.github.io" target="_blank">Ming Lu</a> and 
-                <a href="https://vision.nju.edu.cn/fc/d3/c29470a457939/page.htm", target="_blank">Zhan Ma</a>
+                <a href="https://lumingzzz.github.io" target="_blank">Ming Lu</a><sup>1</sup>, Fangdong Chen<sup>2</sup>, Shiliang Pu<sup>2</sup>, and 
+                <a href="https://vision.nju.edu.cn/fc/d3/c29470a457939/page.htm", target="_blank">Zhan Ma</a><sup>1</sup>
 
                 <div class="affiliations">
-                    Nanjing University
+                    <sup>1</sup>Nanjing University,
+                    <sup>2</sup>Hikvision
                 </div>
             </div>
             <p style="text-align:center;">
@@ -47,27 +48,40 @@
     <div class="container" id="abstractdiv">
         <h2>Abstract</h2>
         <p>
-            Questing for lossy image coding (LIC) with superior efficiency on both compression performance and computation throughput is challenging. 
-            The vital factor behind is how to intelligently explore Adaptive Neighborhood Information Aggregation (ANIA) in transform and entropy coding 
-            modules. To this aim, Integrated Convolution and Self-Attention (ICSA) unit is first proposed to form content-adaptive transform to dynamically 
-            characterize and embed neighborhood information conditioned on the input. Then a Multistage Context Model (MCM) is developed to stagewisely 
-            execute context prediction using necessary neighborhood elements for accurate and parallel entropy probability estimation. Both ICSA and MCM 
-            are stacked under a Variational Auto-Encoder (VAE) architecture to derive rate-distortion optimized compact representation of input image via 
-            end-to-end training. Our method reports the superior compression performance surpassing the VVC Intra with $\approx$15% BD-rate improvement 
-            averaged across Kodak, CLIC and Tecnick datasets; and also demonstrates $\approx$10x speedup of image decoding when compared with other 
-            notable learned LIC approaches. All materials are made publicly accessible at https://njuvision.github.io/TinyLIC for reproducible research.
+            Questing for learned lossy image coding (LIC) with superior compression performance and computation throughput is challenging. 
+            The vital factor behind it is how to intelligently explore Adaptive Neighborhood Information Aggregation (ANIA) in transform 
+            and entropy coding modules. To this end, Integrated Convolution and Self-Attention (ICSA) unit is first proposed to form a 
+            content-adaptive transform to characterize and embed neighborhood information dynamically of any input. Then a Multistage 
+            Context Model (MCM) is devised to progressively use available neighbors following a pre-arranged spatial-channel order for 
+            accurate probability estimation in parallel. ICSA and MCM are stacked under a Variational AutoEncoder (VAE) architecture to 
+            derive rate-distortion optimized compact representation of input image via end-to-end learning. Our method reports 
+            state-of-the-art compression performance surpassing the VVC Intra and other prevalent LIC approaches across Kodak, CLIC, 
+            and Tecnick datasets; More importantly, our method offers  $>$60$\times$ decoding speedup  using a comparable-size model when 
+            compared with the most popular LIC method.
         </p>
     </div>
 
     <div class="container" id="method">
         <h2>Method</h2>
         <p style="text-align:center;">
-            <img src="src/pipeline.png" height="350">
+            <img src="src/network.png" height="300">
         </p>
         <br>
         <p>
             Pipeline of our proposed <strong>TinyLIC</strong> consists of <strong>Content Adaptive Tranform Coding</strong> and <strong>Multistage Entropy Coding</strong>.
         </p>
+        <div class="col-sm-6">
+            <p style="text-align: center;">
+            <img src="src/rnab.png" height="250">
+            <br/>
+            <strong>Residual Neighborhood Attention Block (RNAB)</strong>
+        </p></a></div>
+        <div class="col-sm-6">
+            <p style="text-align: center;">
+            <img src="src/mcm.png" height="250">
+            <br/>
+            <strong>Multistage Context Model (MCM)</strong>
+        </p></a></div>
     </div>
 
     <div class="container" id="exp_visual">
@@ -122,41 +136,24 @@
             </div>
         </div>
     </div>
-    
-    <div class="container" id="illustration">
-        <p>
-            We also provide support of <strong>Variable-Rate Model</strong>, 
-            <strong>Adaptive Inloop Filtering</strong> and <strong>Various 
-            Image Sources</strong>. More details can be found in our 
-            supplemental materials.
-        </p>
-    </div>
 
     <div class="container" id="paperdiv">
         <h2>Preprint Paper</h2>
         <div class="row">
             <div class="col-sm-2">
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <a href="https://github.com/lumingzzz/TinyLIC" target="_blank"><p style="text-align: center;">
                 <img src="src/github_icon.png">
                 <br/>
                 Code (Github)
             </p></a></div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <a href="https://arxiv.org/abs/2204.11448" target="_blank"><p style="text-align: center;">
                 <img src="src/pdf_icon.png" height="120">
                 <br/>
                 Paper (Arxiv)
             </p></a></div>
-            <div class="col-sm-3">
-                <a href="src/supplement.pdf" target="_blank"><p style="text-align: center;">
-                <img src="src/pdf_icon.png" height="120">
-                <br/>
-                Supplement (Updating)
-            </p></a></div>
-            <div class="col-sm-2">
-            </div>
         </div>
         <a href="" target="_blank">
             <div class="thumbs">
@@ -164,14 +161,12 @@
         </a>
         <div>
             <pre class="citation">
-            @misc{lu2022highefficiency,
-                title={High-Efficiency Lossy Image Coding Through Adaptive Neighborhood Information Aggregation}, 
-                author={Ming Lu and Zhan Ma},
-                year={2022},
-                eprint={2204.11448},
-                archivePrefix={arXiv},
-                primaryClass={eess.IV}
-              }
+                @article{lu2022high,
+                    title={High-Efficiency Lossy Image Coding Through Adaptive Neighborhood Information Aggregation},
+                    author={Lu, Ming and Ma, Zhan},
+                    journal={arXiv preprint arXiv:2204.11448},
+                    year={2022}
+                  }
             </pre>
         </div>
     </div>
