@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>End-to-End Neural Image Coding Survey and TinyLIC</title>
+  <meta name="description" content="Project page for the survey End-to-End Neural Image Coding and TinyLIC, an open neural image codec.">
+  <meta property="og:title" content="End-to-End Neural Image Coding Survey and TinyLIC">
+  <meta property="og:description" content="A review of neural image compression and TinyLIC, an open lightweight neural image codec.">
+  <meta property="og:image" content="figs/fig8.png">
+  <style>
+    :root {
+      --ink: #182229;
+      --muted: #62717b;
+      --line: #dbe5e8;
+      --paper: #f7faf8;
+      --white: #ffffff;
+      --blue: #286f8e;
+      --green: #2f8063;
+      --amber: #e98b2a;
+      --violet: #6655b8;
+      --blue-soft: #e8f4f8;
+      --green-soft: #eaf6f0;
+      --amber-soft: #fff2df;
+      --violet-soft: #f0edfb;
+      --shadow: 0 22px 70px rgba(24, 34, 41, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(219, 229, 232, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    nav .wrap {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      box-shadow: 0 0 0 5px rgba(47, 128, 99, 0.12);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 74px 0 42px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7faf8 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid,
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(390px, 1.08fr);
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: #245a72;
+      font-size: 13px;
+      font-weight: 820;
+    }
+
+    h1 {
+      margin: 18px 0 0;
+      max-width: 760px;
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 36px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .lead,
+    .section-lead {
+      color: var(--muted);
+    }
+
+    .lead {
+      margin: 22px 0 0;
+      max-width: 720px;
+      font-size: 20px;
+    }
+
+    .section-head {
+      max-width: 860px;
+      margin-bottom: 28px;
+    }
+
+    .section-lead {
+      margin: 14px 0 0;
+      font-size: 18px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--ink);
+      border-radius: 7px;
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 780;
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .button:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .visual {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .image-frame {
+      display: grid;
+      gap: 10px;
+    }
+
+    .caption {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .metric {
+      min-height: 112px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 68px 0;
+    }
+
+    section.alt {
+      background: var(--white);
+      border-block: 1px solid var(--line);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 176px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .alt .card {
+      background: #fbfdfc;
+    }
+
+    .card b {
+      display: block;
+      margin-top: 12px;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .card p {
+      margin: 9px 0 0;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: #276d54;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .tag.blue {
+      background: var(--blue-soft);
+      color: #245a72;
+    }
+
+    .tag.amber {
+      background: var(--amber-soft);
+      color: #8d531c;
+    }
+
+    .tag.violet {
+      background: var(--violet-soft);
+      color: #51448e;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--muted);
+    }
+
+    .list b {
+      color: var(--ink);
+    }
+
+    .figure-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .figure-strip .visual {
+      box-shadow: 0 16px 48px rgba(24, 34, 41, 0.08);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      background: var(--white);
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 15px;
+    }
+
+    th {
+      background: #eef5f2;
+      color: #21343c;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    footer {
+      padding: 34px 0 44px;
+      color: #b8c7cd;
+      background: var(--ink);
+    }
+
+    footer a {
+      color: #cdebf6;
+    }
+
+    @media (max-width: 920px) {
+      nav .wrap {
+        align-items: flex-start;
+        flex-direction: column;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+
+      .hero-grid,
+      .split,
+      .figure-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Primary">
+    <div class="wrap">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true"></span>
+        Neural Image Coding Survey
+      </a>
+      <div class="links">
+        <a href="#review">Review</a>
+        <a href="#tinylic">TinyLIC</a>
+        <a href="#results">Results</a>
+        <a href="https://github.com/NJUVISION/TinyLIC">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Survey + Open Benchmark</span>
+          <h1>End-to-End Neural Image Coding</h1>
+          <p class="lead">
+            A review of foundations, evolution, deployment, and outlook for neural image compression, paired with TinyLIC: an open lightweight neural image codec for practical system-level evaluation.
+          </p>
+        </div>
+        <div class="image-frame">
+          <a href="figs/fig2.pdf">
+            <img class="visual" src="figs/fig2.png" alt="Taxonomy of representative works in end-to-end learned image coding">
+          </a>
+          <p class="caption">Review taxonomy: core coding components and practical extensions.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="review">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>A review built around codec systems</h2>
+        <p class="section-lead">
+          The survey follows learned image coding from VAE-based foundations to practical deployment issues that decide whether a neural codec can become a reliable compression system.
+        </p>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="tag blue">Core</span><b>Framework</b><p>Nonlinear transforms, quantization, entropy models, and rate-distortion optimization.</p></div>
+        <div class="card"><span class="tag amber">Practice</span><b>Deployment</b><p>Variable rate, cross-platform consistency, model robustness, lightweight deployment, and standardization.</p></div>
+        <div class="card"><span class="tag violet">Benchmark</span><b>TinyLIC</b><p>A reproducible reference codec for rate-distortion-complexity and system trade-off studies.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tinylic" class="alt">
+    <div class="wrap split">
+      <div>
+        <div class="section-head">
+          <h2>TINYLIC: An Open Neural Image Codec</h2>
+          <p class="section-lead">
+            TinyLIC is designed as a transparent, efficient, and extensible reference codec rather than a large model chasing only the strongest R-D curve.
+          </p>
+        </div>
+        <ul class="list">
+          <li><b>Complexity-aware scaling:</b> Nano, Small, and Base variants at approximately 10, 20, and 50 KMACs/pixel.</li>
+          <li><b>Practical tools:</b> variable-rate coding, INT8 consistent decoding, adversarially robust training, progressive coding, and loss-resilient coding.</li>
+          <li><b>Two objectives:</b> distortion-oriented models for PSNR and perception-oriented models for LPIPS/FID studies.</li>
+        </ul>
+      </div>
+      <div class="image-frame">
+        <a href="figs/fig8.pdf">
+          <img class="visual" src="figs/fig8.png" alt="TinyLIC as a practical benchmark for learned image compression">
+        </a>
+        <p class="caption">TinyLIC benchmark overview: model budgets, baseline modes, practical mechanisms, and optimization goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Compact models, competitive performance</h2>
+        <p class="section-lead">
+          TinyLIC is evaluated on Kodak, CLIC, Tecnick, and JPEG AI test images. Lower BD-rate is better; VTM 22.0 is the distortion-oriented anchor.
+        </p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Variant</th>
+              <th>Dec. KMACs/pixel</th>
+              <th>Params</th>
+              <th>Kodak</th>
+              <th>CLIC</th>
+              <th>Tecnick</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Nano</td><td>9.99</td><td>3.16M</td><td>14.78</td><td>14.68</td><td>12.76</td></tr>
+            <tr><td>Small</td><td>19.99</td><td>4.76M</td><td>5.43</td><td>4.63</td><td>2.73</td></tr>
+            <tr><td>Base</td><td>50.76</td><td>10.57M</td><td>-0.79</td><td>-1.76</td><td>-4.21</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions">
+        <a class="button" href="https://github.com/NJUVISION/TinyLIC">Open Latest GitHub</a>
+        <a class="button" href="https://github.com/lumingzzz/TinyLIC">Open TinyLIC'22 GitHub</a>
+        <a class="button secondary" href="figs/fig2.pdf">Open Review Taxonomy</a>
+        <a class="button secondary" href="figs/fig10.pdf">Open Result Curves</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      End-to-End Neural Image Coding: Foundation, Evolution, Deployment, and Outlook.
+    </div>
+  </footer>
+</body>
+</html>
