@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="#survey"><img src="https://img.shields.io/badge/Survey-End--to--End%20Neural%20Image%20Coding-2f6f8f" alt="Survey"></a>
-  <a href="https://github.com/NJUVISION/TinyLIC/TinyLIC"><img src="https://img.shields.io/badge/TinyLIC-Open%20Neural%20Image%20Coder-f28c28" alt="TinyLIC"></a>
+  <a href="https://github.com/NJUVISION/TinyLIC/tree/main/tinylic"><img src="https://img.shields.io/badge/TinyLIC-Open%20Neural%20Image%20Coder-f28c28" alt="TinyLIC"></a>
   <a href="#contributing"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
   <a href="https://njuvision.github.io/TinyLIC/"><img src="https://img.shields.io/badge/Project%20Page-index.html-6d5dfc" alt="Website"></a>
 </p>
