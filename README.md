@@ -4,13 +4,13 @@
 
 <p align="center">
   <a href="#survey"><img src="https://img.shields.io/badge/Survey-End--to--End%20Neural%20Image%20Coding-2f6f8f" alt="Survey"></a>
-  <a href="https://github.com/NJUVISION/TinyLIC/blob/main/LIC_survey_v1.pdf"><img src="https://img.shields.io/badge/Paper-Draft-286f8e" alt="Paper Draft"></a>
+  <a href="https://njuvision.github.io/TinyLIC/LIC_survey_v1.pdf"><img src="https://img.shields.io/badge/Paper-Draft-286f8e" alt="Paper Draft"></a>
   <a href="https://github.com/NJUVISION/TinyLIC/tree/main/tinylic"><img src="https://img.shields.io/badge/TinyLIC-Open%20Neural%20Image%20Coder-f28c28" alt="TinyLIC"></a>
   <a href="#contributing"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
   <a href="https://njuvision.github.io/TinyLIC/"><img src="https://img.shields.io/badge/Project%20Page-index.html-6d5dfc" alt="Website"></a>
 </p>
 
-This repository accompanies the survey **End-to-End Neural Image Coding: Foundation, Evolution, Deployment, and Outlook**. The paper draft is available on GitHub: [LIC_survey_v1.pdf](https://github.com/NJUVISION/TinyLIC/blob/main/LIC_survey_v1.pdf).
+This repository accompanies the survey **End-to-End Neural Image Coding: Foundation, Evolution, Deployment, and Outlook**. The paper draft is available here: [LIC_survey_v1.pdf](https://njuvision.github.io/TinyLIC/LIC_survey_v1.pdf).
 
 The page first highlights the TinyLIC benchmark, then lists papers by survey section.
 
