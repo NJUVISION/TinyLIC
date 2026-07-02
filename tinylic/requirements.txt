@@ -1,0 +1,14 @@
+# Tested with Python 3.12.
+# The local test environment used CUDA 12.8 builds of PyTorch 2.8.0 and torchvision 0.23.0.
+# If you need a specific CUDA build, install PyTorch from https://pytorch.org/get-started/locally/.
+torch==2.8.0
+torchvision==0.23.0
+compressai==1.2.8
+pytorch-msssim==1.0.0
+Pillow==12.0.0
+numpy==2.5.0
+matplotlib==3.10.5
+torchmetrics==1.8.2
+torch-fidelity==0.3.0
+lpips==0.1.4
+fvcore==0.1.5.post20221221
