@@ -10,7 +10,7 @@
   <a href="https://njuvision.github.io/TinyLIC/"><img src="https://img.shields.io/badge/Project%20Page-index.html-6d5dfc" alt="Website"></a>
 </p>
 
-This repository accompanies the survey **End-to-End Neural Image Coding: Foundation, Evolution, Deployment, and Outlook**. The paper draft is available here: [LIC_survey_v1.pdf](https://njuvision.github.io/TinyLIC/LIC_survey_v1.pdf).
+This repository accompanies the survey **End-to-End Learned Image Coding: From Rate-Distortion Optimization to Practical Deployment**. The paper draft is available here: [LIC_survey_v1.pdf](https://njuvision.github.io/TinyLIC/LIC_survey_v1.pdf).
 
 The page first highlights the TinyLIC benchmark, then lists papers by survey section.
 
